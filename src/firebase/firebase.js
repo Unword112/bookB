@@ -10,30 +10,19 @@ import { getFirestore,
          } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_API_KEY,
-  authDomain: process.env.REACT_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_DATABASE_URL,
-  projectId: process.env.REACT_PROJECT_ID,
-  storageBucket: process.env.REACT_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_MESSAGEING_SENDER_ID,
-  appId: process.env.REACT_APP_ID,
-  measurementId: process.env.REACT_MEASUREMENT_ID,
+  apiKey: "AIzaSyCoTsNdUA4iFktvN_OUsc3TIDpaB--XkHw",
+  authDomain: "loginfirebase-d3f44.firebaseapp.com",
+  databaseURL: "https://loginfirebase-d3f44-default-rtdb.firebaseio.com",
+  projectId: "loginfirebase-d3f44",
+  storageBucket: "loginfirebase-d3f44.appspot.com",
+  messagingSenderId: "1010714738989",
+  appId: "1:1010714738989:web:4de7dc326dd60d257cd3a4",
+  measurementId: "G-JRM6ZCWQ33"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-
-const loginWithEmailAndPassword = async (auth, email, password, { setIsAuth }) => {
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    localStorage.setItem('isAuth', true);
-    setIsAuth(true);
-  } catch(err) {
-    console.error(err);
-    alert(err.message);
-  }
-}
 
 const registerWithEmailAndPassword = async (auth, email, password, name, address, phonenumber, {setIsAuth}) => {
   try {
@@ -46,7 +35,6 @@ const registerWithEmailAndPassword = async (auth, email, password, name, address
       authProvider: 'local ',
       name,
       email,
-      address,
       phonenumber,
     });
   } catch(err) {
@@ -66,7 +54,6 @@ const logout = ({ isAuth, setIsAuth }) => {
 export {
   auth,
   db,
-  loginWithEmailAndPassword,
   registerWithEmailAndPassword,
   logout,
 }

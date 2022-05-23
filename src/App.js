@@ -1,4 +1,3 @@
-import './App.css';
 import React , { useState } from 'react';
 
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
@@ -22,7 +21,6 @@ function App() {
           <Link to="/login">Login</Link>
         ) : (
           <>
-          <Link to="/register">Register</Link>
           <Link to='profiles'>Profiles</Link>
           <button onClick={logout}>Sign Out</button>
           </>
